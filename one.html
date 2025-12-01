@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+main{
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+button{
+    padding: 1vw 2vw;
+    background-color: crimson;
+    border: none;
+    color: white;
+    font-size: 1.5vw;
+    border-radius: .4rem;
+    position: relative;
+    z-index: 999;
+}
+button:active{
+    scale:.95
+}
+.h2-style{
+    position: absolute;
+    text-transform: uppercase;
+}
+</style>
+<body>
+    <main>
+        <button>
+            click!..
+        </button>
+    </main>
+    <script>
+        let arr=['abhiraj is a ','web developer','who creates visually ','stunning things','and make them a great experience'];
+        let main=document.querySelector("main")
+        let btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            let h2=document.createElement('h2');
+            let index=Math.floor(Math.random()*arr.length)
+            let x=Math.random()*80
+            let y=Math.random()*80
+            let rotation=Math.random()*360
+            let scl=Math.random()*3
+            h2.innerHTML=arr[index];
+            main.appendChild(h2)
+            h2.classList.add('h2-style')
+            h2.style.left=`${x}%`
+            h2.style.top=`${y}%`
+            h2.style.rotate=rotation+'deg'
+            h2.style.scale=scl
+        })
+    </script>
+</body>
+</html>

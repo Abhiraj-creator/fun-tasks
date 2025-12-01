@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        background-color: #222;
+        overflow: hidden;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="keyboard" class="piano-player-piano" style="bottom: 122px">
+  <img src="—Pngtree—paper cut texture piano keyboard_8639783.png" alt="">
+  <script>
+for(let i=28;i<63;i++){
+        let aud=new Audio(i+'.mp3');
+        aud.preload="auto"
+        window['voice'+i]=aud
+    }
+    const keyMap = {
+  "KeyQ": 28,
+  "KeyW": 29,
+  "KeyE": 30,
+  "KeyR": 31,
+  "KeyT": 32,
+  "KeyY": 33,
+  "KeyU": 34,
+  "KeyI": 35,
+  "KeyO": 36,
+  "KeyP": 37,
+  "KeyA": 38,
+  "KeyS": 39,
+  "KeyD": 40,
+  "KeyF": 41,
+  "KeyG": 42,
+  "KeyH": 43,
+  "KeyJ": 44,
+  "KeyK": 45,
+  "KeyL": 46,
+  "KeyZ": 47,
+  "KeyX": 48,
+  "KeyC": 49,
+  "KeyV": 50,
+  "KeyB": 51,
+  "KeyN": 52,
+  "KeyM": 53,
+  "Digit1": 54,
+  "Digit2": 55,
+  "Digit3": 56,
+  "Digit4": 57,
+  "Digit5": 58,
+  "Digit6": 59,
+  "Digit7": 60,
+  "Digit8": 61,
+  "Digit9": 62,
+  "Digit0": 63
+};
+   document.addEventListener('keydown',(dets)=>{
+    for(let i=28;i<63;i++){
+        let voicenumber=keyMap[dets.code];
+       if(voicenumber){
+        const aud=window["voice"+voicenumber];
+        aud.currenTime=0
+        aud.play()
+       }
+    }
+    
+    
+   })
+  </script>
+  </body>
+</html>

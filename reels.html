@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, Helvetica, sans-serif;
+          color: white;
+        }
+        
+        html,
+        body {
+          height: 100%;
+          width: 100%;
+        }
+        body{
+            background-color: #222;
+        }
+        main{
+            height: 100%;
+            width: 100%;
+
+        }
+        section{
+            height: 100%;
+            width: 100%;
+             display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+
+        }
+        .all-reels{
+            height: 100%;
+            width: 400px;
+            overflow: auto;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        .all-reels::-webkit-scrollbar{
+            display: none;
+        }
+         .reel{
+            height: 100%;
+            width: 100%;
+           border-radius: 10px;
+           overflow: hidden;
+           position: relative;
+           margin-bottom: 10px;
+           scroll-snap-align: start;
+
+        } 
+         .img-div{
+            height: 100%;
+            width: 100%;
+         }
+        .img-div video{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+        }
+        .bottom{
+            position: absolute;
+            bottom: 3%;
+            /* text-align: center; */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 20px;
+        } 
+        .bottom .upper{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+        }
+        .upper img{
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .bottom>h2{
+            font-size: 18px;
+            width: 85%;
+            font-weight: 400;
+
+        }
+         .bottom>h3{
+            font-weight: 400;
+
+        }
+        .upper h4{
+            padding: 5px 10px;
+            border: 2px solid white;
+            font-weight: 400;
+        }
+        .right{
+            position: absolute;
+            right: 0;
+            bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            text-align: center;
+            /* background-color: red; */
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .right i{
+            font-size: 25px;
+        }
+        .right h3{
+            font-weight: 400;
+        }
+        .love{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="all-reels">
+               
+        </section>
+    </main>
+    <script>
+  const reels = [
+  {
+    username: "travel_with_arya",
+    caption: "Sunset vibes hitting different today 🌅",
+    likeCount: 4521,
+    isLiked: false,
+    shareCount: 213,
+    commentCount: 187,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    videoReel: "https://www.pexels.com/download/video/34883121/"
+  },
+  {
+    username: "fitnessbyriya",
+    caption: "5-minute morning stretch routine 💪",
+    likeCount: 9823,
+    isLiked: true,
+    shareCount: 540,
+    commentCount: 442,
+    isFollowed: false,
+    userProfile: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe",
+    videoReel: "https://www.pexels.com/download/video/10994876/"
+  },
+  {
+    username: "chef_nikita",
+    caption: "This chocolate lava cake is insane 🍫🔥",
+    likeCount: 12034,
+    isLiked: true,
+    shareCount: 893,
+    commentCount: 624,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39",
+    videoReel: "https://www.pexels.com/download/video/4465077/"
+  },
+  {
+    username: "tech_sam",
+    caption: "Top 3 gadgets under ₹2000 ⚡",
+    likeCount: 6791,
+    isLiked: false,
+    shareCount: 301,
+    commentCount: 255,
+    isFollowed: false,
+    userProfile: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+    videoReel: "https://www.pexels.com/download/video/7964467/"
+  },
+  {
+    username: "dancewithme",
+    caption: "Try this choreography challenge 🔥💃",
+    likeCount: 15892,
+    isLiked: true,
+    shareCount: 1293,
+    commentCount: 742,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    videoReel: "https://www.pexels.com/download/video/29579352/"
+  },
+  {
+    username: "petlover_mia",
+    caption: "My dog learned a new trick today 🐶❤️",
+    likeCount: 4210,
+    isLiked: false,
+    shareCount: 184,
+    commentCount: 139,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    videoReel: "https://www.pexels.com/download/video/7963239/"
+  },
+  {
+    username: "fashion_kritika",
+    caption: "Outfit inspo for winters ❄️✨",
+    likeCount: 11092,
+    isLiked: true,
+    shareCount: 702,
+    commentCount: 511,
+    isFollowed: false,
+    userProfile: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    videoReel: "https://www.pexels.com/download/video/6586063/"
+  },
+  {
+    username: "codingwithraj",
+    caption: "JavaScript tip that will save your time ⚙️",
+    likeCount: 5632,
+    isLiked: false,
+    shareCount: 293,
+    commentCount: 177,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    videoReel: "https://www.pexels.com/download/video/5787615/"
+  },
+  {
+    username: "music_by_neo",
+    caption: "This beat is stuck in my head 🎧🔥",
+    likeCount: 8934,
+    isLiked: true,
+    shareCount: 488,
+    commentCount: 302,
+    isFollowed: false,
+    userProfile: "https://images.unsplash.com/photo-1527980965255-d3b416303d12",
+    videoReel: "https://www.pexels.com/download/video/6865211/"
+  },
+  {
+    username: "art_of_meera",
+    caption: "Finished this sketch today ✏️💛",
+    likeCount: 3345,
+    isLiked: false,
+    shareCount: 121,
+    commentCount: 94,
+    isFollowed: true,
+    userProfile: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    videoReel: "https://www.pexels.com/download/video/6003990/"
+  }
+];
+
+function reelData(){
+  let sum='';
+let all_reels=document.querySelector('.all-reels');
+reels.forEach(function(elem,idx){
+   sum +=` <div class="reel">
+                   <div class="img-div">
+                  <video autoplay  loop src='${elem.videoReel}'></video>
+                    <div class="bottom">
+                        <div class="upper">
+                            <img src="${elem.userProfile}" alt="">
+                            <h3>${elem.username}</h3>
+                            <h4 class='follow'>${elem.isFollowed?"Follow":"UnFollow"}</h4>
+                        </div>
+                        <h2>${elem.caption}
+                        </h2>
+                    </div>
+                    <div class="right">
+                        <div class="like" id=${idx}>
+                            <div class="like-icon"> ${elem.isLiked?'<i class="love ri-heart-3-fill"></i>':'<i class="ri-heart-3-line"></i>'}</div>
+                            <h3>${elem.likeCount}</h3>
+                        </div>
+                         <div class="comment">
+                            <div class="comment-icon"><i class="ri-chat-1-line"></i></div>
+                            <h3>${elem.commentCount}</h3>
+                        </div>
+                          <div class="share">
+                            <div class="share-icon"><i class="ri-share-forward-fill"></i></div>
+                            <h3>${elem.shareCount}</h3>
+                        </div>
+                          <div class="menu">
+                            <div class="menu-icon"><i class="ri-more-2-line"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+})
+
+all_reels.innerHTML=sum
+}
+reelData()
+let all_reels=document.querySelector('.all-reels');
+all_reels.addEventListener('click',(dets)=>{
+
+
+
+
+
+})
+    </script>
+</body>
+</html>

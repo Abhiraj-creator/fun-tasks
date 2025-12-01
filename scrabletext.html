@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        html,
+        body {
+          height: 100%;
+          width: 100%;
+        }
+        body{
+            background-color: #333;
+            color: rgb(38, 188, 8);
+            display: grid;
+            place-items: center;
+
+        }
+        h2{
+            font-size: 50px;
+            text-transform: capitalize;
+            padding: 1.5rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>I am Abhiraj Singh Bhati</h2>
+    <script>
+        let iterator=0;
+        let h2=document.querySelector('h2');
+        let copy_h2=document.createElement('h2').textContent=h2.textContent;
+        let text='QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm';
+        h2_text=h2.textContent;
+        h2.addEventListener("mouseenter",()=>{
+           setInterval(()=>{
+            let randomstr= h2_text.split('').map((char,idx)=>{
+                if(idx<iterator) return char
+                return text.split('')[Math.floor(Math.random()*53)]
+            }).join('')
+            h2.textContent=randomstr
+            iterator+=.25
+           },100) 
+        }) 
+    </script>
+</body>
+</html>

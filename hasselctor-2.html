@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+    main{
+        height: 100%;
+        width: 100%;
+        background-color: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .card{
+        width: 300px;
+        border-radius: 15px;
+        color: #fff;
+        border: 3px solid white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .card img{
+        width: 100%;
+    }
+    main:has(.card:hover) .card{
+        filter: blur(5px);
+    }
+    main:has(.card:active) .card{
+        scale: .85;
+    }
+    .card:hover{
+        filter: blur(0) !important;
+    }
+    .card:active{
+        scale: 1.2 !important;
+    }
+</style>
+<body>
+    <main>
+        <div class="card">
+            <img src="https://github.com/softwaredeveloper111/card-animation-advanced-css/blob/main/assets/WebCollage_angryedit.webp?raw=true" alt="">
+            <h2>The Cult</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+         <div class="card">
+            <img src="https://github.com/softwaredeveloper111/card-animation-advanced-css/blob/main/assets/WebCollage_angryedit.webp?raw=true" alt="">
+            <h2>The Cult</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+         <div class="card">
+            <img src="https://github.com/softwaredeveloper111/card-animation-advanced-css/blob/main/assets/WebCollage_angryedit.webp?raw=true" alt="">
+            <h2>The Cult</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+    </main>
+</body>
+</html>

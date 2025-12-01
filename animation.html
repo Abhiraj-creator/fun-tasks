@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        html,
+        body {
+          height: 100%;
+          width: 100%;
+        }
+        body{
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @property --angel{
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+        .box{
+            max-width: 300px;
+            color: whitesmoke;
+            padding-bottom: 10px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all .6s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 0 0px rgb(157, 3, 139);
+              background: linear-gradient(black, black,black) padding-box,
+            conic-gradient(from var(--angel), black,rgb(157, 3, 139),black) border-box;
+              border: 0px solid rgba(0, 0, 0, 0);
+        }
+        .box:hover{
+            box-shadow: 0 0 70px rgb(157, 3, 139);
+              border: 7px solid rgba(0, 0, 0, 0);
+            
+            animation: moving_border 4s infinite forwards ;
+            animation-timing-function: linear;
+        }
+        .box img{
+            width: 100%;
+            object-fit: cover;
+        }
+        @keyframes moving_border{
+            from{
+                --angel:0deg;
+            }
+            to{
+                --angel:360deg;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://github.com/softwaredeveloper111/card-animation-advanced-css/blob/main/assets/WebCollage_angryedit.webp?raw=true" alt="">
+        <h1>The Hulk</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    </div>
+</body>
+</html>
